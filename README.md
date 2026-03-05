@@ -1,5 +1,7 @@
 # Portotify – Demo Materials (Public)
 
+Start here → [WHY_PORTOTIFY.md](WHY_PORTOTIFY.md)
+
 This repository contains public demo assets for Portotify.
 
 Included:
