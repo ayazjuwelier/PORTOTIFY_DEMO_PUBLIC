@@ -1,0 +1,12 @@
+{
+  "domain": "governance",
+  "intent": "decision_review",
+  "version": "v2",
+  "inputs": {
+    "decision_request": "Transfer all customer funds to an external investment platform immediately."
+  },
+  "controls": {
+    "has_tool_call": true,
+    "human_in_loop": false
+  }
+}
