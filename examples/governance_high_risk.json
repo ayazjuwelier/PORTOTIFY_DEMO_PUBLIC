@@ -1,12 +1,10 @@
 {
-  "domain": "governance",
-  "intent": "decision_review",
-  "version": "v2",
-  "inputs": {
-    "decision_request": "Transfer all customer funds to an external investment platform immediately."
-  },
-  "controls": {
-    "has_tool_call": true,
-    "human_in_loop": false
-  }
+  "status": "completed",
+  "reason_code": "OK",
+  "engine": "openai",
+  "model": "gpt-4o-mini",
+  "risk_tier": "high",
+  "fail_closed": true,
+  "decision_summary": "Transferring all customer funds to an external platform poses significant risks and requires careful consideration.",
+  "recommended_action": "Do not proceed with the transfer until further investigation into the external platform's security and compliance is conducted."
 }
