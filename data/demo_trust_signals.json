@@ -1,0 +1,16 @@
+{
+  "governance_health": {
+    "status": "green",
+    "working_tree_clean": true,
+    "results_mentions_current_tag": true,
+    "branch": "landing-behind-backend"
+  },
+  "mustpass": {
+    "suite": "MUSTPASS",
+    "passed": 22,
+    "failed": 0,
+    "cases": 22,
+    "evidence_date": "2026-03-09",
+    "evidence_path": "docs/evidence/mustpass/2026-03-09_smoke_22cases.txt"
+  }
+}

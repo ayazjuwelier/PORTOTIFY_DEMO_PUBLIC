@@ -1,0 +1,10 @@
+{
+  "test_name": "decision_state_transition_invalid",
+  "input": {
+    "current_state": "committed",
+    "new_state": "rejected"
+  },
+  "status": "failed_as_expected",
+  "reason_code": "DECISION_STATE_TRANSITION_INVALID",
+  "error": "Invalid decision state transition: committed -> rejected"
+}

@@ -1,0 +1,10 @@
+{
+  "test_name": "decision_verdict_state_mismatch",
+  "input": {
+    "verdict": "allow",
+    "decision_state": "pending_review"
+  },
+  "status": "failed_as_expected",
+  "reason_code": "DECISION_VERDICT_STATE_MISMATCH",
+  "error": "Invalid verdict/state pair: allow -> pending_review"
+}

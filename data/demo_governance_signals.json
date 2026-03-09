@@ -1,0 +1,39 @@
+{
+  "generated_at": "2026-03-10",
+  "source": "PORTOTIFY_WORK demo evidence",
+  "boundary_outcomes": {
+    "low": {
+      "execution_id": "31d74fff-d10f-4e61-89d7-3d4a9fc2f20e",
+      "risk_tier": "low",
+      "decision_state": "committed",
+      "governance_verdict": "allow",
+      "commit_allowed": 1,
+      "review_required": 0
+    },
+    "high": {
+      "execution_id": "c577975d-e593-4589-bbf3-aeedaa2dcc61",
+      "risk_tier": "high",
+      "reason": "tool_call_without_human_review",
+      "decision_state": "pending_review",
+      "governance_verdict": "review_required",
+      "commit_allowed": 0,
+      "review_required": 1
+    },
+    "critical": {
+      "execution_id": "e9c00684-b102-4f37-b2e5-02b2b08491f2",
+      "risk_tier": "critical",
+      "reason": "external_write_without_human_review",
+      "decision_state": "rejected",
+      "governance_verdict": "block",
+      "commit_allowed": 0,
+      "review_required": 0
+    }
+  },
+  "lifecycle_summary": {
+    "candidate_to_boundary": [
+      "committed",
+      "pending_review",
+      "rejected"
+    ]
+  }
+}
