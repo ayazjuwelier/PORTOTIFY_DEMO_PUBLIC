@@ -1,12 +1,12 @@
 {
-  "execution_id": "b7ed2a06-7b51-48a4-81b1-bce06431a572",
+  "execution_id": "c84859aa-c5a1-451a-aabd-5e33ddf7974a",
   "asset": {
     "asset_id": "ad698871-67df-448a-9b48-060f24f0bbcf",
     "name": "default_execution_engine",
     "domain": "core"
   },
   "decision_capsule": {
-    "decision_id": "b7ed2a06-7b51-48a4-81b1-bce06431a572",
+    "decision_id": "c84859aa-c5a1-451a-aabd-5e33ddf7974a",
     "decision_state": "committed",
     "governance_verdict": "allow",
     "risk_tier": "low"
@@ -21,15 +21,15 @@
     "admissibility_passed": true
   },
   "timestamps": {
-    "created_at": "2026-03-11T20:11:33.204913+00:00",
-    "updated_at": "2026-03-11T20:11:33.236554+00:00"
+    "created_at": "2026-03-12T21:37:18.795554+00:00",
+    "updated_at": "2026-03-12T21:37:18.820876+00:00"
   },
   "_artifact_meta": {
-    "generated_at": "2026-03-11T20:38:13.559212Z",
+    "generated_at": "2026-03-12T21:37:48.742880Z",
     "source_endpoints": [
       "/v1/governance/assets",
-      "/v1/governance/decision-lineage/b7ed2a06-7b51-48a4-81b1-bce06431a572",
-      "/v1/governance/review-history/b7ed2a06-7b51-48a4-81b1-bce06431a572"
+      "/v1/governance/decision-lineage/c84859aa-c5a1-451a-aabd-5e33ddf7974a",
+      "/v1/governance/review-history/c84859aa-c5a1-451a-aabd-5e33ddf7974a"
     ],
     "review_history_available": true,
     "base_url": "http://127.0.0.1:8000"
