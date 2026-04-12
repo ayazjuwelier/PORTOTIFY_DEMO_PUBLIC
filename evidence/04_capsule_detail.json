@@ -1,1 +1,35 @@
-﻿{"item":{"id":"c8636872-01e8-4001-aae2-d34c6582b03b","decision_id":"147c2943-e8b1-41ef-aa50-f03bea2d8c20","sector":"governance","initial_risk_tier":"high","current_risk_tier":"high","initial_score_v0":null,"current_score_v0":null,"user_override":0,"override_risk_tier":null,"override_reason":null,"override_by":null,"rationale_short":"auto: risk_tier_v0>=high","tracked_topics_json":null,"created_at_utc":"2026-03-05T20:51:35.490861+00:00","updated_at_utc":"2026-03-05T20:51:35.490861+00:00"}}
+{
+  "artifact_type": "decision_capsule",
+  "decision_id": "DEC-2026-03-05-001",
+  "decision_version": 1,
+  "lineage_root_id": "DEC-2026-03-05-001",
+  "immutable": true,
+  "decision_state": "committed",
+  "governance_verdict": "review_required",
+  "risk_tier": "high",
+  "created_at_utc": "2026-03-05T20:51:35.490861+00:00",
+  "request_summary": {
+    "domain": "treasury",
+    "intent": "propose_external_funds_transfer",
+    "audience": "public_demo"
+  },
+  "governance_controls": {
+    "human_review_required": true,
+    "external_write_permitted": false,
+    "commit_allowed": true,
+    "fail_closed": true
+  },
+  "governance_rationale": {
+    "reason_code": "high_risk_external_financial_action",
+    "summary": "High-risk financial action is persisted as committed while the required human review proceeds as a separate workflow."
+  },
+  "artifact_integrity": {
+    "hash_algorithm": "sha256",
+    "artifact_hash": "static-demo-capsule-v1-sha256",
+    "source_mode": "curated_static_demo"
+  },
+  "related_artifacts": {
+    "execution_artifact": "evidence/03_governance_high_risk_execute.json",
+    "review_lineage_artifact": "evidence/06_review_flow_lineage.json"
+  }
+}

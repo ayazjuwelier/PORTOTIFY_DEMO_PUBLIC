@@ -1,16 +1,22 @@
 {
-  "governance_health": {
-    "status": "green",
-    "working_tree_clean": true,
-    "results_mentions_current_tag": true,
-    "branch": "landing-behind-backend"
+  "artifact_type": "demo_trust_signals",
+  "generated_at": "2026-03-10",
+  "scope": "static_public_demo",
+  "product_truths": [
+    "Governance decisions are immutable and versioned.",
+    "Human review is a separate workflow.",
+    "High-risk decisions do not commit directly without review.",
+    "Critical external write conditions are blocked fail-closed."
+  ],
+  "public_evidence_bundle": {
+    "decision_capsule": "evidence/04_capsule_detail.json",
+    "review_lineage": "evidence/06_review_flow_lineage.json",
+    "boundary_high_result": "data/boundary_high_result.json",
+    "boundary_critical_result": "data/boundary_critical_result.json"
   },
-  "mustpass": {
-    "suite": "MUSTPASS",
-    "passed": 22,
-    "failed": 0,
-    "cases": 22,
-    "evidence_date": "2026-03-09",
-    "evidence_path": "docs/evidence/mustpass/2026-03-09_smoke_22cases.txt"
+  "presentation_safety": {
+    "live_backend_required": false,
+    "localhost_instructions_present": false,
+    "mutable_decision_demo_present": false
   }
 }

@@ -1,10 +1,11 @@
 {
-  "status": "completed",
-  "reason_code": "OK",
-  "engine": "openai",
-  "model": "gpt-4o-mini",
-  "risk_tier": "high",
-  "fail_closed": true,
-  "decision_summary": "Transferring all customer funds to an external platform poses significant risks and requires careful consideration.",
-  "recommended_action": "Do not proceed with the transfer until further investigation into the external platform's security and compliance is conducted."
+  "demo_version": "public-static-v2",
+  "domain": "treasury",
+  "intent": "propose_external_funds_transfer",
+  "inputs": {
+    "request_summary": "Propose moving customer funds to a newly added external destination account.",
+    "amount_band": "high",
+    "destination_type": "external_account",
+    "human_approval_attached": false
+  }
 }

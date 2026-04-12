@@ -1,1 +1,24 @@
-﻿{"total_executions":12,"completed_count":11,"blocked_count":1,"capsules_written":6,"legacy_executions_without_capsule":7,"high_risk_count":6,"risk_distribution":{"high":6},"audit_gaps":{"executions_risk_tier_null_count":12,"completed_risk_tier_null_count":11,"blocked_risk_tier_null_count":1},"manual_flag_metrics":{"flagged_count":6,"suggested_flag_count":0,"high_risk_unflagged_count":0,"high_risk_threshold_score_gte":60},"recent_7d":{"label":"7d","total":12,"risk_tier_null_count":12,"risk_tier_nonnull_count":0,"completed_total":11,"completed_risk_tier_null_count":11,"completed_risk_tier_nonnull_count":0,"blocked_total":1,"blocked_risk_tier_null_count":1,"blocked_risk_tier_nonnull_count":0},"recent_24h":{"label":"24h","total":8,"risk_tier_null_count":8,"risk_tier_nonnull_count":0,"completed_total":8,"completed_risk_tier_null_count":8,"completed_risk_tier_nonnull_count":0,"blocked_total":0,"blocked_risk_tier_null_count":0,"blocked_risk_tier_nonnull_count":0},"recent_2h":{"label":"2h","total":2,"risk_tier_null_count":2,"risk_tier_nonnull_count":0,"completed_total":2,"completed_risk_tier_null_count":2,"completed_risk_tier_nonnull_count":0,"blocked_total":0,"blocked_risk_tier_null_count":0,"blocked_risk_tier_nonnull_count":0},"capsules_last_24h":4,"capsules_last_2h":2,"latest_capsule":{"decision_id":"147c2943-e8b1-41ef-aa50-f03bea2d8c20","current_risk_tier":"high","created_at":"2026-03-05T20:51:35.490861+00:00","detail_path":"/v1/governance/decision-capsules/147c2943-e8b1-41ef-aa50-f03bea2d8c20"}}
+{
+  "artifact_type": "governance_health_snapshot",
+  "snapshot_at_utc": "2026-03-10T12:00:00+00:00",
+  "scope": "static_public_demo",
+  "status": "green",
+  "health_signals": {
+    "immutable_decision_versions": true,
+    "review_workflow_separate_from_lifecycle": true,
+    "fail_closed_boundary_enabled": true,
+    "legacy_mutation_language_removed": true
+  },
+  "demo_counts": {
+    "low_risk_allow_examples": 1,
+    "policy_manipulation_blocks": 2,
+    "high_risk_review_required_examples": 1,
+    "critical_fail_closed_blocks": 1
+  },
+  "latest_lineage_example": {
+    "decision_id": "DEC-2026-03-05-001",
+    "latest_version": 1,
+    "latest_state": "committed",
+    "source_artifact": "evidence/06_review_flow_lineage.json"
+  }
+}

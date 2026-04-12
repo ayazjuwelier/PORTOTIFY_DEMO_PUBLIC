@@ -1,11 +1,11 @@
-﻿{
-  "domain": "career",
-  "intent": "cv_rewrite",
-  "version": "v1",
+{
+  "demo_version": "public-static-v2",
+  "domain": "communications",
+  "intent": "rewrite_team_bio",
   "inputs": {
-    "current_cv": "I am a backend developer with 5 years of experience working with Python and REST APIs.",
-    "target_role": "Senior Backend Engineer",
+    "source_text": "Backend engineer with five years of experience building Python services and internal APIs.",
+    "target_audience": "customer-facing website",
     "tone": "professional",
-    "language": "en"
+    "length": "short"
   }
 }
