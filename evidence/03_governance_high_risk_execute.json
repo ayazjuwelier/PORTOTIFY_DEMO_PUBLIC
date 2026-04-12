@@ -1,1 +1,32 @@
-﻿{"output":{"data":{"decision_summary":"Transferring all customer funds to an external investment platform poses significant risks and requires careful consideration.","risks":["Potential loss of customer funds due to platform instability or fraud.","Regulatory compliance issues related to transferring customer funds.","Customer dissatisfaction or legal action if funds are lost or mismanaged."],"unknowns":["The credibility and security measures of the external investment platform.","The impact on customer relationships and trust.","The legal implications of transferring funds without customer consent."],"recommended_action":"Do not proceed with the transfer until thorough due diligence on the external platform is completed and customer consent is obtained."},"error":null},"controls":{"fail_closed":true,"blocked":false,"block_reasons":[]},"meta":{"schema_version":"v2","execution_id":"147c2943-e8b1-41ef-aa50-f03bea2d8c20","trace_id":"1740293c-1e3b-4213-89ee-5f7b195c1fea","request_id":"7bc4d976-ecb0-4f72-8284-b2549e73847f","status":"completed","reason_code":"OK","engine":"openai","model":"gpt-4o-mini","prompt_tokens":280,"completion_tokens":147,"total_tokens":427,"duration_ms":null,"elapsed_ms":4491,"risk_tier_v0":{"tier":"high","reasons":["tool_call_without_human_review"],"signals":{"has_external_write":false,"has_tool_call":true,"human_in_loop":false,"override_used":false}}}}
+{
+  "artifact_type": "execution_candidate",
+  "artifact_role": "runtime_execution_candidate",
+  "execution_id": "EXEC-2026-03-05-HIGH-001",
+  "created_at_utc": "2026-03-05T20:51:34.101000+00:00",
+  "execution_status": "candidate_generated",
+  "candidate_action_released": false,
+  "persisted_governance_source": "evidence/04_capsule_detail.json",
+  "request_summary": {
+    "domain": "treasury",
+    "intent": "propose_external_funds_transfer",
+    "risk_tier": "high"
+  },
+  "candidate_output": {
+    "decision_summary": "Runtime candidate proposes an external destination transfer and remains secondary to the persisted governance record.",
+    "recommended_action": "Refer to the persisted decision capsule for committed decision truth and track human review as a separate workflow."
+  },
+  "persisted_decision_reference": {
+    "decision_id": "DEC-2026-03-05-001",
+    "decision_version": 1,
+    "governance_verdict": "review_required",
+    "persisted_decision_state": "committed"
+  },
+  "controls": {
+    "fail_closed": true,
+    "external_write_executed": false
+  },
+  "artifact_note": {
+    "authority_boundary": "Persisted governance truth lives in the decision capsule, not in this runtime execution artifact.",
+    "review_model": "Human review is tracked separately from persisted decision state."
+  }
+}

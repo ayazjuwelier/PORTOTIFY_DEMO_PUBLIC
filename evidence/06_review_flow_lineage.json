@@ -1,37 +1,30 @@
 {
-  "execution_id": "7389c613-ff97-4804-9d38-377d9b87b5b9",
-  "asset": {
-    "asset_id": null,
-    "name": null,
-    "domain": null
+  "lineage_id": "LINEAGE-2026-03-05-001",
+  "decision_id": "DEC-2026-03-05-001",
+  "lineage_root_id": "DEC-2026-03-05-001",
+  "workflow_summary": "Human review is separate from the persisted decision lifecycle. The persisted high-risk decision remains committed while review activity is tracked as a separate workflow.",
+  "versions": [
+    {
+      "decision_version": 1,
+      "decision_state": "committed",
+      "governance_verdict": "review_required",
+      "risk_tier": "high",
+      "created_at_utc": "2026-03-05T20:51:35.490861+00:00",
+      "summary": "Persisted high-risk decision committed with a separate review-required governance outcome."
+    }
+  ],
+  "review_workflow": {
+    "workflow_id": "REV-2026-03-06-014",
+    "status": "completed",
+    "review_outcome": "approved_with_controls",
+    "reviewed_by": "authorized_reviewer",
+    "completed_at_utc": "2026-03-06T09:12:41.000000+00:00",
+    "notes": "Review completion was recorded separately and did not introduce a persisted candidate state."
   },
-  "decision_capsule": {
-    "decision_id": "7389c613-ff97-4804-9d38-377d9b87b5b9",
-    "decision_state": "committed",
-    "governance_verdict": "allow",
-    "risk_tier": "high"
-  },
-  "review": {
-    "review_required": false,
-    "reviewed_by": "demo_admin",
-    "review_reason": "manual review approve"
-  },
-  "governance": {
-    "commit_allowed": true,
-    "admissibility_passed": true
-  },
-  "timestamps": {
-    "created_at": "2026-03-09T14:55:24.924462+00:00",
-    "updated_at": "2026-03-12T13:40:55.387824+00:00"
-  },
-  "_artifact_meta": {
-    "generated_at": "2026-03-12T13:45:00Z",
-    "artifact_type": "review_flow_demo",
-    "description": "High-risk decision requiring human review before commit",
-    "source_endpoints": [
-      "/v1/governance/review-queue",
-      "/v1/governance/decision-lineage/7389c613-ff97-4804-9d38-377d9b87b5b9"
-    ],
-    "base_url": "http://127.0.0.1:8000"
+  "governance_controls": {
+    "pending_review_is_lifecycle_state": false,
+    "immutable_decision_versions": true,
+    "high_risk_persisted_state": "committed",
+    "review_required_is_workflow_outcome": true
   }
 }

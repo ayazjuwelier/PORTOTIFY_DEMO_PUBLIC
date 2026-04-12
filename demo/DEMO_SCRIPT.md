@@ -1,302 +1,101 @@
-Portotify — Live Demo Script (3 Minutes)
+# Portotify Public Demo Script
 
+This public demo is a static walkthrough of Portotify's governance model.
 
+Portotify does not treat model output as decision authority. The governance boundary decides whether a governed decision is persisted as committed or rejected, and whether a separate human review workflow is required.
 
-Opening (10–15 seconds)
+Use the artifacts in this order.
 
+## 1. Low-risk allow path
 
+Open `examples/execute_request.json` and the paired low-risk evidence.
 
-“Most AI demos focus on what AI can do.
+Narrative:
 
-Portotify focuses on something else: what AI should not do.
+- This request is ordinary and low risk.
+- The governance boundary returns `allow`.
+- The decision can be committed because the request does not trigger elevated controls.
 
+What to emphasize:
 
+- Low-risk work can proceed.
+- Governance still records a decision artifact.
+- The artifact is immutable and versioned.
 
-Portotify is a decision governance layer that sits between users, AI models, and real-world actions.
+## 2. Prompt or policy manipulation blocked path
 
+Open `examples/injection_test.json` and `examples/injection_test_2.json`.
 
+Narrative:
 
-Instead of blindly executing AI outputs, Portotify evaluates decisions before they happen and ensures that risky actions remain visible, controlled, and auditable.
+- These requests attempt to override policy or reveal hidden instructions.
+- Portotify blocks them before they can become valid governed decisions.
+- The system fails closed instead of trying to recover silently.
 
+What to emphasize:
 
+- Policy manipulation does not become a normal execution path.
+- The blocked outcome is deterministic and auditable.
+- The model is not the authority.
 
-Let’s run three example decisions.”
+## 3. High-risk review-required path
 
+Open `examples/governance_high_risk.json`, `evidence/03_governance_high_risk_execute.json`, and `data/boundary_high_result.json`.
 
+Narrative:
 
----
+- This request proposes a high-risk external financial action.
+- The execution artifact is only a candidate summary.
+- The governance boundary persists the decision as committed.
+- Human review happens in a separate workflow.
 
+What to emphasize:
 
+- `review_required` is a governance verdict, not a lifecycle state.
+- Persisted high-risk decision truth is `committed` plus `review_required`.
+- Review does not introduce a separate persisted lifecycle state.
 
-1\. Normal Decision (Low Risk) — ~30 seconds
+## 4. Critical fail-closed blocked path
 
+Open `data/boundary_critical_result.json`.
 
+Narrative:
 
-Terminal command:
+- This request includes an external write condition without required controls.
+- Portotify rejects it at the boundary.
+- No commit occurs and no fallback "best effort" path is allowed.
 
+What to emphasize:
 
+- External write conditions must fail closed.
+- Blocked decisions are rejected explicitly.
+- Safety comes from deterministic boundary control, not post-hoc explanation.
 
-curl.exe -X POST "http://127.0.0.1:8000/v1/execute" -H "Content-Type: application/json" --data-binary "@examples/cv\_rewrite.json"
+## 5. Immutable decision artifact and lineage
 
-Explanation:
+Open `evidence/04_capsule_detail.json` and `evidence/06_review_flow_lineage.json`.
 
+Narrative:
 
+- Each decision artifact represents one immutable version.
+- New information does not mutate an old decision.
+- Review activity is tracked separately from persisted decision state.
 
-“Here we ask the system to rewrite a CV summary.
+What to emphasize:
 
-This is a normal, low-risk task.
+- Decisions are immutable and versioned.
+- Human review is a separate workflow.
+- Review does not rewrite persisted decision state into `candidate` or `pending_review`.
 
+## 6. Governance health and trust signals
 
+Open `evidence/05_governance_health.json`, `data/demo_governance_signals.json`, and `data/demo_trust_signals.json`.
 
-Portotify allows low-risk decisions to proceed normally.”
+Narrative:
 
+- These artifacts summarize the public demo model.
+- They reinforce the immutable boundary rules without implying any live integration.
 
+Close with:
 
-Show in response:
-
-
-
-risk\_tier\_v0: low
-
-status: completed
-
-
-
-Brief note:
-
-
-
-“Low-risk requests continue directly to the AI model.”
-
-
-
----
-
-
-
-2\. Prompt Manipulation / Injection Attempt — ~40 seconds
-
-
-
-Terminal command:
-
-
-
-curl.exe -X POST "http://127.0.0.1:8000/v1/execute" -H "Content-Type: application/json" --data-binary "@examples/injection\_test.json"
-
-Explanation:
-
-
-
-“This request attempts to manipulate the system through prompt instructions, asking the model to ignore internal policies and reveal hidden governance rules.”
-
-
-
-Show in response:
-
-
-
-fail\_closed: true
-
-blocked: true
-
-engine: none
-
-block\_reasons: IGNORE\_SYSTEM\_INSTRUCTIONS
-
-
-
-Explanation:
-
-
-
-“Portotify detects policy-override attempts directly in the user input and blocks the request before any AI model is called.
-
-
-
-Notice that the engine is ‘none’.
-
-This means the request never reached the AI model.”
-
-
-
-Short architectural note:
-
-
-
-“This guard is intentionally minimal in Core1.
-
-
-
-Portotify is not trying to win an endless jailbreak arms race.
-
-
-
-Instead, it guarantees deterministic fail-closed governance.
-
-
-
-When a policy override attempt is detected, the system stops execution before the AI model is called and records the event as an auditable artifact.”
-
-
-
----
-
-
-
-3\. High-Risk Decision — ~60 seconds
-
-
-
-Terminal command:
-
-
-
-curl.exe -X POST "http://127.0.0.1:8000/v1/execute" -H "Content-Type: application/json" --data-binary "@backend/body\_high.json"
-
-Explanation:
-
-
-
-“This request asks the AI to transfer customer funds to an external platform.
-
-
-
-Portotify classifies this as a high-risk decision because it involves a potential external action without human approval.”
-
-
-
-Show in response:
-
-
-
-risk\_tier\_v0: high
-
-reason: tool\_call\_without\_human\_review
-
-
-
-Explanation:
-
-
-
-“Instead of silently executing the request, Portotify analyzes the decision risk and generates a governance artifact.”
-
-
-
-Pause.
-
-
-
-“This means risky decisions become visible and reviewable before anything happens in the real world.”
-
-
-
----
-
-
-
-4\. Decision Capsule (Governance Artifact) — ~30 seconds
-
-
-
-Terminal command:
-
-
-
-curl http://127.0.0.1:8000/v1/governance/decision-capsules/<execution\_id>
-
-
-
-Explanation:
-
-
-
-“This is a Decision Capsule.
-
-
-
-It records:
-
-
-
-\* the decision request
-
-\* its risk classification
-
-\* the rationale for the classification
-
-\* and the timestamp of the event
-
-
-
-This creates a permanent governance artifact that can be audited later.”
-
-
-
-Show in response:
-
-
-
-initial\_risk\_tier: high
-
-rationale\_short: auto: risk\_tier\_v0>=high
-
-created\_at\_utc: ...
-
-
-
----
-
-
-
-5\. Governance Health Overview — ~20 seconds
-
-
-
-Terminal command:
-
-
-
-curl http://127.0.0.1:8000/v1/governance/health
-
-
-
-Explanation:
-
-
-
-“This endpoint provides a governance overview.
-
-
-
-Organizations can see how AI decisions are distributed by risk level and track governance activity over time.”
-
-
-
-Show in response:
-
-
-
-capsules\_written
-
-risk\_distribution
-
-latest\_capsule
-
-
-
----
-
-
-
-Closing (10–15 seconds)
-
-
-
-“Portotify does not promise perfect AI decisions.
-
-
-
-Instead, it ensures that AI decisions remain visible, auditable, and governable.”
-
+Portotify does not promise perfect model output. It ensures that governed decisions are versioned, reviewable when necessary, and blocked fail-closed when required conditions are not met.
